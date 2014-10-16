@@ -1,0 +1,21 @@
+<% if current_user.admin? %>
+<div class="top">
+	<div class="container marketing">
+  		<div class="row">
+  			<div class="col-lg-4">
+			<h1>Επεξεργασία Περιοχής: <%= @area.id %></h1>
+
+			<%= render 'form' %>
+
+			<%= link_to 'Show', @area %> |
+			<%= link_to 'Back', areas_path %>
+			</div>
+
+			<div class="col-lg-4">
+          		<h3>Φωτογραφίες και Κείμενα</h3>
+          		<%= render 'shared/post_feed' %>
+  			</div>
+		</div>
+	</div>
+</div>
+<% end %>

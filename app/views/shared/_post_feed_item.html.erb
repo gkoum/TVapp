@@ -1,0 +1,38 @@
+
+<li align=left id="<%= post_feed_item.id %>" class="feed">
+  
+  <hr class="featurette-divider">
+  
+
+    <% if post_feed_item.content != nil %>
+      <h3><div class="content"><%= wrap(post_feed_item.content) %></div></h3>
+    <% end %>
+
+    <% if post_feed_item.text != nil %>
+      <div class="content"><%= wrap(post_feed_item.text) %></div>  
+    <% end %>
+   
+  
+    <% if post_feed_item.image_url != nil %>
+      <img class="avatar" src=<%= post_feed_item.image_url(:thumb).to_s %> alt="Avatar">
+    <% end %>
+    <% if post_feed_item.scene_id != nil %>
+      <div class="content">Ανήκει στη Σκηνή: <%= post_feed_item.scene_id %> στην Περιοχή: <%= post_feed_item.area_id %></div>
+    <% end %>
+    
+    <div class="row" class="timestamp">
+      Posted <%= time_ago_in_words(post_feed_item.created_at) %> ago.
+    
+    <% if current_user?(@scene.user) or current_user.admin? %>
+      <%= link_to "Επεξεργασία", edit_micropost_path(post_feed_item) %>
+      <% if current_user.admin? %>
+        <%= link_to "Διαγραφή", post_feed_item, method: :delete,
+              data: { confirm: "Είστε σίγουρος για την διαγραφή του σχολίου;" },
+          title: post_feed_item.content %>
+      <% end %>   
+    <% end %>
+    </div>
+</li>
+ 
+
+ 

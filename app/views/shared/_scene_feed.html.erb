@@ -1,0 +1,8 @@
+<div>
+	<% if @scene_feed_items.any? %>
+  		<ul class="microposts">
+    	<%= render partial: 'shared/scene_feed_item', collection: @scene_feed_items %>
+  		</ul>
+  		<%= will_paginate @scene_feed_items %>
+	<% end %>
+</div>

@@ -1,0 +1,51 @@
+<% if signed_in? %>
+<div class="top">
+<div class="container marketing">
+  <div class="row">
+  	<div class="col-lg-4">
+    <% if current_user.admin? %>
+  		<h4>Είστε συνδεμένος σαν Διαχειριστής</h4>
+      <h3>
+        <%= link_to "Δημιουργία Δημοσίευσης!", new_micropost_path, class: "btn btn-large btn-primary" %>
+      </h3>
+		<% end %>  
+      <h3>Διαχείριση Σκηνής: <%= @scene.id %></h3>
+		  <h3>
+        <%= link_to "Προεπισκόπηση Σκηνής!", @scene, class: "btn btn-large btn-primary" %>
+       </h3>
+		
+        
+		  <section><%= render 'shared/user_info' %></section>
+    <% if current_user.admin? %>
+		  <%= render 'form' %>
+    
+		<%= link_to 'Show', @scene %> |
+		<%= link_to 'Back', scenes_path %>
+  <% end %>
+  
+        
+      
+	</div>
+  	<div class="col-lg-4">
+          <h3>Οι Περιοχές της Σκηνής: <%= @scene.id%></h3>
+          <%= render 'shared/area_feed' %>
+  	</div>
+  	<div class="col-lg-4">
+          <h3>Φωτογραφίες και Κείμενα</h3>
+          <%= render 'shared/post_feed' %>
+          
+  	</div>
+
+</div>
+<div class="col-lg-4">
+          
+          <h3>Μικρογραφία Σκηνής</h3>
+        <iframe class="iframe" src ="http://localhost:3000/scenes/<%= @scene.id%>" />
+    </div>
+</div>
+</div>
+<% end %>
+
+        
+      
+  

@@ -1,4 +1,8 @@
 MasterbetApp::Application.routes.draw do
+  resources :areas
+
+  resources :scenes
+
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   resources :microposts

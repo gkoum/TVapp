@@ -1,0 +1,37 @@
+<%= form_for(@area) do |f| %>
+  <% if @area.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@area.errors.count, "error") %> prohibited this area from being saved:</h2>
+
+      <ul>
+      <% @area.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label "Αριθμός Σκηνής" %><br>
+    <%= f.number_field :scene_id %>
+  </div>
+  <div class="field">
+    <%= f.label "Τύπος Σκηνής" %><br>
+    <%= f.number_field :number %>
+  </div>
+  <div class="field">
+    <%= f.label "Περιοχή πάνω στην Σκηνή" %><br>
+    <%= f.text_field :place %>
+  </div>
+  <div class="field">
+    <%= f.label "Διάσταση Περιοχής" %><br>
+    <%= f.text_field :dimension %>
+  </div>
+  <div class="field">
+    <%= f.label "Τύπος Περιεχομένου" %><br>
+    <%= f.text_field :area_type %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

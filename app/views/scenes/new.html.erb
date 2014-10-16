@@ -1,0 +1,24 @@
+<% if current_user.admin? %>
+<div class="top">
+<div class="container marketing">
+  <div class="row">
+  	<div class="col-lg-4">
+  		<h4>Είστε συνδεμένος σαν Διαχειριστής</h4>
+		<h1>Νέα Σκηνή</h1>
+		
+		<%= render 'form' %>
+		<%= link_to 'Back', scenes_path %>
+	</div>
+  	<div class="col-lg-4">
+          <h3>Οι Σκηνές μου</h3>
+          
+  	</div>
+  	<div class="col-lg-4">
+          <h3>Φωτογραφίες και Κείμενα</h3>
+          
+  	</div>
+</div>
+</div>
+</div>
+<% end %>
+

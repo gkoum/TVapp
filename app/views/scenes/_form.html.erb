@@ -1,0 +1,33 @@
+<%= form_for(@scene) do |f| %>
+  <% if @scene.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@scene.errors.count, "error") %> prohibited this scene from being saved:</h2>
+
+      <ul>
+      <% @scene.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div>Δημιουργήθηκε: <%= @scene.created_at %></div>
+  <div class="field">
+    <%= f.label "Ταυτότητα Χρήστη" %><br>
+    <%= f.text_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label "Όνομα Σκηνής" %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :url %><br>
+    <%= f.text_field :url %>
+  </div>
+  <div class="field">
+    <%= f.label "Τύπος Σκηνής" %><br>
+    <%= f.text_field :scene_type %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

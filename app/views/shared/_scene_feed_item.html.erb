@@ -1,0 +1,32 @@
+
+<li align=left id="<%= scene_feed_item.id %>" class="feed">
+  
+  <hr class="featurette-divider">
+  <div class="row featurette">
+    
+    
+    <div class="content">Ανήκει στο Χρήστη: <%= scene_feed_item.user.id %></div>  
+         
+    <% if scene_feed_item.name != nil %>
+      <h3><div class="content"><%= wrap(scene_feed_item.name) %></div></h3>
+    <% end %>
+
+    <% if scene_feed_item.url != nil %>
+      <div class="content"><%= wrap(scene_feed_item.url) %></div>  
+    <% end %>
+ 
+    <div class="timestamp">
+      Posted <%= time_ago_in_words(scene_feed_item.created_at) %> ago.
+    
+    <% if current_user.admin? %>
+      <%= link_to "Διαγραφή Σκηνής", scene_feed_item, method: :delete,
+              data: { confirm: "Είστε σίγουρος για την διαγραφή του σχολίου;" },
+          title: scene_feed_item.name %>
+    <% end %>
+       <%= link_to "Επεξεργασία Σκηνής", edit_scene_path(scene_feed_item), class: "btn btn-large btn-primary" %>
+    
+    
+    </div>
+    
+  </div>
+</li>

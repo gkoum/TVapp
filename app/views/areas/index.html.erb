@@ -1,0 +1,48 @@
+<% if current_user.admin? %>
+<div class="top">
+  <div class="container marketing">
+      <div class="row">
+        <div class="col-lg-4">
+<h1>Οι Περιοχές</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Αριθμός Περιοχής</th>
+      <th>Τύπος Σκηνής</th>
+      <th>Περιοχή</th>
+      <th>Διάσταση</th>
+      <th>Περιεχόμενο</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @areas.each do |area| %>
+      <tr>
+        <td><%= area.id %></td>
+        <td><%= area.number %></td>
+        <td><%= area.place %></td>
+        <td><%= area.dimension %></td>
+        <td><%= area.area_type %></td>
+        <td><%= link_to 'Show', area %></td>
+        <td><%= link_to 'Edit', edit_area_path(area) %></td>
+        <td><%= link_to 'Destroy', area, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+<h3>
+        <%= link_to "Δημιουργία Περιοχής!", new_area_path, class: "btn btn-large btn-primary" %>
+        </h3>
+</div>
+    </div>
+  </div>
+</div>
+<% end %>

@@ -1,12 +1,14 @@
 
 
 <h1>
-  Καλώς ήρθες <%= current_user.name %>
+  Καλώς ήρθες <%= @user.name %>
 </h1>
+<p> Email: <%= @user.email %></p>
+<p> Αριθμός Χρήστη: <%= @user.id %></p>
+<p>
+  <%= link_to "Ο Λογαριασμός μου", @user_user %>
+</p>
+<p>
+  Σύνολο Σκηνών <%= pluralize(@user.scenes.count, "scene") %>
 
-<span>
-  <% current_user.email %><%= link_to "Ο Λογαριασμός μου", current_user %>
-</span>
-<span>
-  Σύνολο σχολίων <%= pluralize(current_user.microposts.count, "micropost") %>
-</span>
+</p>

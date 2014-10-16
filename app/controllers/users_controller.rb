@@ -8,16 +8,16 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.paginate(page: params[:page])
+    @users = User.all
+    
   end
 
   def show
     if signed_in?
-  		@user=current_user
-
-  		@micropost  = current_user.microposts.build
-      @category=@micropost.category.to_s
-    	@feed_items = current_user.feed.paginate(page: params[:page], :per_page => 5)
+  		@user = User.find(params[:id])
+      
+    	@scene_feed_items = @user.scene_feed.paginate(page: params[:page], :per_page => 5)
+      
     else
     	@user = User.find(params[:id])
     end
@@ -35,15 +35,15 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)    # Not the final implementation!
-
+    @admin = User.find_by(admin: true)
     respond_to do |format|
       if @user.save
-        sign_in @user
-        flash[:success] = "User created and signed in"
-        UserMailer.welcome_email(@user).deliver
+        
+        flash[:success] = "User created"
+        
  
-        format.html { redirect_to(@user, notice: 'Email was sent.') }
-        format.json { render json: @user, status: :created, location: @user }
+        format.html { redirect_to(@user) }
+        format.json { render json: @user, status: :created, location: @admin }
       else
         format.html { render action: 'new' }
         format.json { render json: @user.errors, status: :unprocessable_entity }

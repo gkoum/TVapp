@@ -1,0 +1,35 @@
+
+<li align=left id="<%= area_feed_item.id %>" class="feed">
+  
+  <hr class="featurette-divider">
+  <div class="row featurette">
+    
+    <% if area_feed_item.id != nil %>
+      <h3><div class="content"><%= area_feed_item.id %></div></h3>
+    <% end %>
+    <% if area_feed_item.area_type != nil %>
+      <h3><div class="content"><%= wrap(area_feed_item.area_type) %></div></h3>
+    <% end %>
+    <% if area_feed_item.number != nil %>
+      <div class="content">Τύπος Σκηνής: <%= area_feed_item.number %></div>  
+    <% end %>
+    <% if area_feed_item.place != nil %>
+      <div class="content">Περιοχή Εμφάνισης: <b> <%= wrap(area_feed_item.place) %></b></div>  
+    <% end %>
+    <% if area_feed_item.dimension != nil %>
+      <div class="content">Διαστάσεις Περιοχής: <%= wrap(area_feed_item.dimension) %></div>  
+    <% end %>
+ 
+    <div class="timestamp">
+      Posted <%= time_ago_in_words(area_feed_item.created_at) %> ago.
+    
+    <% if current_user.admin? %>
+      <%= link_to "Διαγραφή Περιοχής", area_feed_item, method: :delete,
+              data: { confirm: "Είστε σίγουρος για την διαγραφή του σχολίου;" },
+          title: area_feed_item.area_type %>
+       <%= link_to "Επεξεργασία Περιοχής", edit_area_path(area_feed_item) %>
+    <% end %>
+    
+    </div>
+  </div>
+</li>

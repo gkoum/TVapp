@@ -4,13 +4,13 @@
   <div class="row">
     <div class="col-sm-5 .col-md-6">
     <h2 class="form-signin-heading">
-  Επεξεργασία δημοσίευσης στην κατηγορία: <%= @micropost.category %></h2>
+  Επεξεργασία δημοσίευσης που εμφανίζεται στην περιοχή: <%= @micropost.area_id%> στη σκηνή: <%= @micropost.scene_id %></h2>
   <%= form_for @micropost, :html => {:multipart => true} do |f| %>
   
   <%= render 'shared/error_messages', object: f.object %>
-  <p>
+  
   <div class="field">
-    <%= f.text_area :content, :cols => "30", :rows => "1", placeholder: "Εισάγετε τίτλο για το άρθρο σας..." %>
+    <%= f.text_area :content, :cols => "30", :rows => "2", placeholder: "Εισάγετε τίτλο για το άρθρο σας..." %>
   </div></p>
   <p>
   <div class="field">
@@ -21,7 +21,16 @@
     <strong>Εισαγωγή νέας εικόνας που θα αντικαταστήσει την υπάρχουσα: </strong><%= f.file_field :image %>
   </p>
   </div>
-
+  <div class="field"> 
+    <p>Κατηγορία Δημοσίευσης:
+    <%= f.select :category, [['Ειδήσεις','news'],['Events','events'],['Blog','blog']] %></p>
+  </div>
+  <div class="field">
+    <%= f.text_field :scene_id, :cols => "30", :rows => "1", placeholder: "Αριθμός Σκηνής" %>
+  </div>
+  <div class="field">
+    <%= f.text_field :area_id, :cols => "30", :rows => "1", placeholder: "Αριθμός Περιοχής" %>
+  </div>
   
   <%= f.submit "Δημοσίευση", class: "btn btn-large btn-primary" %>
   <%= f.submit 'Άδειασε την Φόρμα', :type => 'reset', class: "btn btn-small btn-primary" %>

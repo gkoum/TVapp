@@ -10,56 +10,33 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <%= link_to "Π.Ντόμαλης",    root_path, class: "navbar-brand" %>
+              <%= link_to "TV_app Administration",    root_path, class: "navbar-brand" %>
+            </div>
+            <div class="navbar-header">
+            <div class="navbar-brand">
+              
+              
+              <% flash.each do |key, value| %>
+        <%= content_tag(:div, value, class: "alert alert-#{key}") %>
+        <!-- the same as above<div class="alert alert-<%= key %>"><%= value %></div>-->
+      <% end %>
+            </div>
             </div>
             <div class="navbar-collapse collapse">
-              <ul class="nav navbar-nav">
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Το Πρακτορείο μου <b class="caret"></b></a>
-                  <ul class="dropdown-menu">
-                    <li><%= link_to "Περιγραφή-Εικόνα 360",    myshop_path %></li>
-                    <li><%= link_to "Εικόνες",    galery_path %></li>
-                  </ul>
-                </li>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Παιχνίδια ΟΠΑΠ<b class="caret"></b></a>
-                  <ul class="dropdown-menu">
-                    <li><%= link_to "Αποτελέσματα",    results_path %></li>
-                    <li><%= link_to "Τζακποτ",    tzakpot_path %></li>
-                  </ul>
-                </li>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Νέα<b class="caret"></b></a>
-                  <ul class="dropdown-menu">
-                    <li><%= link_to "Προγνωστικά",    tips_path %></li>
-                    <li><%= link_to "Κέρδη",    lucky_path %></li>
-                    <li><%= link_to "Ειδήσεις",    news_path %></li>
-                    <li><%= link_to "Events",    events_path %></li>
-                  </ul>
-                </li>
-                <li><%= link_to "Blog",    blog_path %></li>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Επικοινωνία <b class="caret"></b></a>
-                  <ul class="dropdown-menu">
-                    <li><%= link_to "Κατάστημα",    myshop_path %></li>
-                    <li class="divider"></li>
-                    <li class="dropdown-header">Γίνε Μέλος!</li>
-                    <li><%= link_to "Έγγραφή Χρήστη",    signup_path %></li>
-                    <li><%= link_to "Είσοδος Χρήστη",    signin_path %></li>
-                  </ul>
-                </li>
-              </ul>
+              
               <ul class="nav pull-right">
                 <% if signed_in? %>
                 <% @user=current_user %>
                 <li id="fat-menu" class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <h4><a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 Λογαριασμός Χρήστη <%= @user.name %><b class="caret"></b>
-                </a>
+                </a></h4>
                 <ul class="dropdown-menu">
                   <li><%= link_to "Ο Λογιαριασμός μου", user_path(current_user) %></li>
                   <li><%= link_to "Ρυθμίσεις Λογιαριασμού", edit_user_path(current_user) %></li>
+                  <% if current_user.admin? %>
                   <li><%= link_to "Χρήστες Σελίδας", users_path %></li>
+                  <% end %>
                   <li class="divider"></li>
                   <li>
                   <%= link_to "Έξοδος Χρήστη", signout_path, method: "delete" %>

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Scene:</strong>
+  <%= @area.scene_id %>
+</p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @area.number %>
+</p>
+
+<p>
+  <strong>Place:</strong>
+  <%= @area.place %>
+</p>
+
+<p>
+  <strong>Dimension:</strong>
+  <%= @area.dimension %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @area.area_type %>
+</p>
+
+<%= link_to 'Edit', edit_area_path(@area) %> |
+<%= link_to 'Back', areas_path %>

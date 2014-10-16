@@ -5,21 +5,28 @@
   <div class="row">
     <div class="col-lg-4">
     <% if signed_in? %>
-      <% if @user.admin? %>
-      <section>
-        <%= render 'shared/user_info' %>
-      </section>
-      <section>
-        <%= render 'shared/micropost_form' %>
-      </section>
-    <% end %>
-    </div>
-    <div class="col-lg-4">
-      <h3>Οι δημοσιεύσεις μου</h3>
-      <%= render 'shared/feed' %>
-    </div>
-</div>
-</div>
+      <% if current_user.admin? %>
+        <section>
+          <h3>Είστε συνδεμένος σαν Διαχειριστής</h3>
+          <%= link_to "Εύρεση Χρήστη!", users_path, class: "btn btn-large btn-primary" %>
+        </section>
+        <h3>
+        <%= link_to "Δημιουργία Χρήστη!", signup_path, class: "btn btn-large btn-primary" %>
+        </h3>
+        <h3>
+        <%= link_to "Δημιουργία Σκηνής!", new_scene_path, class: "btn btn-large btn-primary" %>
+        </h3>
+      <% end %>
+      <section><%= render 'shared/user_info' %></section>
+  </div>
+  <div class="col-lg-4">
+          <h3>Οι Σκηνές μου</h3>
+          <%= render 'shared/scene_feed' %>
+  </div>
+  <div class="col-lg-4">
+          <h3>Φωτογραφίες και Κείμενα</h3>
+          <%= render 'shared/post_feed' %>
+  </div>
   <% else %>
     <div class="form-signin" role="form">
   	 <h2 class="form-signin-heading">
