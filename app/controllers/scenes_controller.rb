@@ -42,6 +42,10 @@ class ScenesController < ApplicationController
     end
   end
 
+  def search
+    @scene = Scene.find(params[:category])
+  end
+
   # GET /scenes/new
   def new
     @scene = Scene.new

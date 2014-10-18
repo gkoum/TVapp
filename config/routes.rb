@@ -20,7 +20,7 @@ MasterbetApp::Application.routes.draw do
   match '/myshop', to: 'static_pages#myshop', via: 'get'
   match '/events', to: 'static_pages#events', via: 'get'
   root 'static_pages#home'
-  
+  match '/kostas(/:category)', to: 'scenes#show', via: 'get'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
