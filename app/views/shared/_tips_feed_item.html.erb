@@ -5,19 +5,19 @@
     <div class="content"><table class="table">
             <thead>
               <tr>
-                <th>Προγνωστικό</th>
-                <th>Αριθμός Αγώνα</th>
-                <th>Αγώνας</th>
                 <th>Ώρα</th>
-                <th>Επιτυχία</th>
+                <th>Κωδικός Αγώνα</th>
+                <th>Αγώνας</th>
+                <th>Προγνωστικό</th>
+                <th>Επιτυχία/Αποτυχία</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td><%= tips_feed_item.content %></td>
-                <td>32</td>
-                <td>Ολυμπιακός-Παναθηναικός</td>
-                <td>25/4/14 21:00μμ</td>
+            <tbody class="table-hover">
+              <tr >
+                <td class="success">25/4/14 21:00μμ</td>
+                <td class="success">32</td>
+                <td class="success">Ολυμπιακός-Παναθηναικός</td>
+                <td class="success"><%= tips_feed_item.content %></td>
                 <td bgcolor="green"><span class="glyphicon glyphicon-ok"></span></td>
               </tr>
             </tbody>
@@ -35,3 +35,4 @@
   </li>
 
   <% end %>
+  <hr class="featurette-divider">

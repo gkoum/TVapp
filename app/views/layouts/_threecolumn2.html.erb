@@ -2,26 +2,64 @@
     ================================================== -->
     <!-- Wrap the rest of the page in another container to center all the content. -->
 
-    <div class="container marketing">
 
-      <!-- Three columns of text below the carousel -->
-      <div class="row">
-      <div class="visible-lg">
-        <div class="col-lg-4">
-        
-         <iframe src="http://agones.gr/ticker_frontpages_show.php?width=220"
-         width="220" height="286" scrolling=no marginwidth=0 marginheight=0 frameborder=0 border=0
-         style="border:0;margin:0;padding:0;"></iframe><br />
-         
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-                 
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-          
-            <iframe src="http://ticker.agones.gr/ticker2_vscroll_show.php?speed=1500&color=&color2=&bgcolor=363942&bgcolor2=ffffff&bgcolor1=efefef&font=11&width=250&height=250" width="250" height="250" scrolling=no marginwidth=0 marginheight=0 frameborder=0 border=0 style="border:0;margin:0;padding:0;"></iframe>
-                
-        </div><!-- /.col-lg-4 -->
+<section id="pricing">
+        <div class="container">
+            <div class="box">
+          <div id="pricing-table" class="row">
+                    <div class="col-sm-4">
+                        <ul class="plan">
+                            <li class="plan-name">
+                              <iframe src="http://agones.gr/ticker_frontpages_show.php?width=220"
+                                 width="220" height="286" scrolling=no marginwidth=0 marginheight=0 frameborder=0 border=0
+                                 style="border:0;margin:0;padding:0;">
+                              </iframe><br />
+                            </li>
+                            <li class="plan-price">
+                              <iframe src="http://ticker.agones.gr/ticker2_vscroll_show.php?speed=1500&color=&color2=&bgcolor=363942&bgcolor2=ffffff&bgcolor1=efefef&font=11&width=250&height=250"    width="250" height="250" scrolling=no marginwidth=0 marginheight=0 frameborder=0 border=0 style="border:0;margin:0;padding:0;">
+                              </iframe><br />
+                            </li>
+                            <li class="plan-price">
+                              <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-width="250" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+                            </li>
+                            <li class="plan-name">
+                              <div class="fb-comments" data-href="http://developers.facebook.com/docs/plugins/comments/" data-width="250" data-numposts="5" data-colorscheme="dark"></div>
+                            </li>
+                        </ul>
+                    </div><!--/.col-sm-4-->
+                    <div class="col-sm-4">
+                        <ul class="plan featured">
+                            <li class="plan-name">
+                              <%= link_to image_tag(@postthreecolumn1.image_url(:thumb).to_s, alt: "Rails"), myshop_path(:params => params), data: { no_turbolink: true } %>
+                              <h2><%= @postthreecolumn1.content %></h2>
+                              <p><%= wrap(@postthreecolumn1.text) %></p>
+                              <p><%= link_to "Λεπτομέρειες »", myshop_path(:params => params), data: { no_turbolink: true }, class: "btn btn-default" %></p>
+                            </li>
+                            
+                            <li>
+                              <%= link_to image_tag(@postthreecolumn3.image_url(:thumb).to_s, alt: "Rails"), tips_path(:params => params) %>
+                              <h2><%= @postthreecolumn3.content %></h2>
+                              <p><%= wrap(@postthreecolumn3.text) %></p>
+                              <p><%= link_to "Λεπτομέρειες »", tips_path(:params => params), class: "btn btn-default" %></p>
+                            </li>
+
+                        </ul>
+                        
+                              <%= render 'shared/post_feed_index' %>
+                            
+                    </div><!--/.col-sm-4-->
+                    <div class="col-sm-4">
+                        <ul class="plan">
+                            <li class="plan-price">
+                              <%= link_to image_tag(@postthreecolumn2.image_url(:thumb).to_s, alt: "Rails"), lucky_path(:params => params) %>
+                              <h2><%= @postthreecolumn2.content %></h2>
+                              <p><%= wrap(@postthreecolumn2.text) %></p>
+                              <p><%= link_to "Λεπτομέρειες »", lucky_path(:params => params), data: { no_turbolink: true }, class: "btn btn-default" %></p>
+                            </li>
+                            
+                        </ul>
+                    </div><!--/.col-sm-4-->
+                </div>
+            </div> 
         </div>
-      </div><!-- /.row -->
-</div>
+    </section><!--/#pricing-->

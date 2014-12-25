@@ -1,0 +1,182 @@
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol hidden class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class=""></li>
+        <li class="" data-target="#myCarousel" data-slide-to="1"></li>
+        <li class="active" data-target="#myCarousel" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <% if @postcarousel2 != nil %>
+        <div class="item">  
+          <img src=<%= @postcarousel2.image %> alt="Avatar">
+          <div class="container">
+          <% if @postcarousel2.content != "" %>
+            <div class="transboxup">
+              <div class="circleBase type3"><h3><%= @postcarousel2.content %></h3></div>
+            </div>
+          <% end %>
+          <% if @postcarousel2.text != "" %>
+            <div class="transbox">
+              <p><h4> <%= strip_tags(@postcarousel2.text) %></h4></p>
+            </div>
+          <% end %>
+          </div>
+        </div>
+        <% end %>
+        <% if @postcarousel4 != nil %>
+        <div class="item">
+          <img src=<%= @postcarousel4.image %> alt="Avatar">
+          <div class="container">
+          <% if @postcarousel4.content != "" %>
+            <div class="transboxup">
+              <div class="circleBase type3"><h3><%= @postcarousel4.content %></h3></div>
+            </div>
+          <% end %>
+          <% if @postcarousel4.text != "" %>
+            <div class="transbox">
+              <p><h4> <%= strip_tags(@postcarousel4.text) %></h4></p>
+            </div>
+          <% end %>
+          </div>
+        </div>
+        <% end %>
+        <% if @postcarousel5 != nil %>
+        <div class="item">
+          <img src=<%= @postcarousel5.image %> alt="Avatar">
+          <div class="container">
+          <% if @postcarousel5.content != "" %>
+            <div class="transboxup">
+              <div class="circleBase type3"><h3><%= @postcarousel5.content %></h3></div>
+            </div>
+          <% end %>
+          <% if @postcarousel5.text != "" %>
+            <div class="transbox">
+              <p><h4> <%= strip_tags(@postcarousel5.text) %></h4></p>
+            </div>
+          <% end %>
+          </div>
+        </div>
+        <% end %>
+        <% if @postcarousel6 != nil %>
+        <div class="item">
+          <img src=<%= @postcarousel6.image %> alt="Avatar">
+          <div class="container">
+          <% if @postcarousel6.content != nil %>
+            <div class="transboxup">
+              <div class="circleBase type3"><h3><%= @postcarousel6.content %></h3></div>
+            </div>
+          <% end %>
+          <% if @postcarousel6.text != nil %>
+            <div class="transbox">
+              <p><h4> <%= strip_tags(@postcarousel6.text) %></h4></p>
+            </div>
+          <% end %>
+          </div>
+        </div>
+        <% end %>
+        <% if @postcarousel7 != nil %>
+        <div class="item">
+          <img src=<%= @postcarousel7.image %> alt="Avatar">
+          <div class="container">
+            <% if @postcarousel7.content != "" %>
+            <div class="transboxup">
+              <div class="circleBase type3"><h3><%= @postcarousel7.content %></h3></div>
+            </div>
+          <% end %>
+          <% if @postcarousel7.text != "" %>
+            <div class="transbox">
+              <p><h4> <%= strip_tags(@postcarousel7.text) %></h4></p>
+            </div>
+          <% end %>
+          </div>
+        </div>
+        <% end %>
+        <% if @postcarousel8 != nil %>
+        <div class="item">
+          <img src=<%= @postcarousel8.image %> alt="Avatar">
+          <div class="container">
+          <% if @postcarousel8.content != "" %>
+            <div class="transboxup">
+              <div class="circleBase type3"><h3><%= @postcarousel8.content %></h3></div>
+            </div>
+          <% end %>
+          <% if @postcarousel8.text != "" %>
+            <div class="transbox">
+              <p><h4> <%= strip_tags(@postcarousel8.text) %></h4></p>
+            </div>
+          <% end %>
+          </div>
+        </div>
+        <% end %>
+        <% if @postcarousel9 != nil %>
+        <div class="item">
+          <img src=<%= @postcarousel9.image %> alt="Avatar">
+          <div class="container">
+          <% if @postcarousel9.content != "" %>
+            <div class="transboxup">
+              <div class="circleBase type3"><h3><%= @postcarousel9.content %></h3></div>
+            </div>
+          <% end %>
+          <% if @postcarousel9.text != "" %>
+            <div class="transbox">
+              <p><h4> <%= strip_tags(@postcarousel9.text) %></h4></p>
+            </div>
+          <% end %>
+        </div>
+        <% end %>
+        <% if @postcarousel10 != nil %>
+        <div class="item">
+          <img src=<%= @postcarousel10.image %> alt="Avatar">
+          <div class="container">
+          <% if @postcarousel10.content != "" %>
+            <div class="transboxup">
+              <div class="circleBase type3"><h3><%= @postcarousel10.content %></h3></div>
+            </div>
+          <% end %>
+          <% if @postcarousel10.text != "" %>
+            <div class="transbox">
+              <p><h4> <%= strip_tags(@postcarousel10.text) %></h4></p>
+            </div>
+          <% end %>
+          </div>
+        </div>
+        <% end %>
+        <% if @postcarousel3 != nil %>
+        <div class="item">
+          <img src=<%= @postcarousel3.image %> alt="Avatar">
+          <div class="container">
+          <% if @postcarousel3.content != "" %>
+            <div class="transboxup">
+              <div class="circleBase type3"><h3><%= @postcarousel3.content %></h3></div>
+            </div>
+          <% end %>
+          <% if @postcarousel3.text != "" %>
+            <div class="transbox">
+              <p><h4> <%= strip_tags(@postcarousel3.text) %></h4></p>
+            </div>
+          <% end %>
+          </div>
+        </div>
+        <% end %>
+        <% if @postcarousel1 != nil %>
+        <div class="item active">
+          <img src=<%= @postcarousel1.image %> alt="Avatar">
+          <div class="container">
+          <% if @postcarousel1.content != "" %>
+            <div class="transboxup">
+              <div class="circleBase type3"><h3><%= @postcarousel1.content %></h3></div>
+            </div>
+          <% end %>
+          <% if @postcarousel1.text != "" %>
+            <div class="transbox">
+              <p><h4><b> <%= strip_tags(@postcarousel1.text) %></b></h4></p>
+            </div>
+          <% end %>
+          </div>
+        </div>
+        <% end %>
+      </div>
+      
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev"></a>
+      <a class="right carousel-control" href="#myCarousel" data-slide="next"></a>
+    </div><!-- /.carousel

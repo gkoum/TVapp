@@ -1,0 +1,28 @@
+<!-- Marketing messaging and featurettes
+    ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+
+    <div class="container marketing">
+
+      <!-- Three columns of text below the carousel -->
+      <div class="row">
+        <div class="col-lg-4">
+        <%= link_to image_tag(@postmyshop1.image_url(:thumb).to_s, alt: "Rails"), myshop_path(:params => params), data: { no_turbolink: true } %>
+          <h2><%= @postmyshop1.content %></h2>
+          <p><%= raw(@postmyshop1.text) %></p>
+          <p><%= link_to "Λεπτομέρειες »", myshop_path(:params => params), data: { no_turbolink: true }, class: "btn btn-default" %></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <%= link_to image_tag(@postmyshop2.image_url(:thumb).to_s, alt: "Rails"), myshop_path(:params => params), data: { no_turbolink: true }%>
+          <h2><%= @postmyshop2.content %></h2>
+          <p><%= raw(@postmyshop2.text) %></p>
+          <p><%= link_to "Λεπτομέρειες »", myshop_path(:params => params), data: { no_turbolink: true }, class: "btn btn-default" %></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <%= link_to image_tag(@postmyshop3.image_url(:thumb).to_s, alt: "Rails"), myshop_path(:params => params), data: { no_turbolink: true } %>
+          <h2><%= @postmyshop3.content %></h2>
+          <p><%= raw(@postmyshop3.text) %></p>
+          <p ><%= link_to "Λεπτομέρειες »", myshop_path(:params => params), data: { no_turbolink: true }, class: "btn btn-default" %></p>
+        </div><!-- /.col-lg-4 -->
+      </div><!-- /.row -->
+</div>

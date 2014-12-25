@@ -1,41 +1,16 @@
 <div class="top">
-<div class="container marketing">
-  <div class="row">
-<h1>Listing scenes</h1>
-
-<table class="table">
-  <thead>
-    <tr>
-      <th>Αριθμός Σκηνής</th>
-      <th>Αριθμός Χρήστη</th>
-      <th>Όνομα Σκηνής</th>
-      <th>Url</th>
-      <th> Τύπος Σκηνής</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @scenes.each do |scene| %>
-      <tr>
-        <td><%= scene.id %></td>
-        <td><%= scene.user_id %></td>
-        <td><%= scene.name %></td>
-        <td><%= scene.url %></td>
-        <td><%= scene.scene_type %></td>
-        <td><%= link_to 'Show', scene %></td>
-        <td><%= link_to 'Edit', edit_scene_path(scene) %></td>
-        <td><%= link_to 'Destroy', scene, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'Δημιουργία Νέας Σκηνής', new_scene_path, class: "btn btn-large btn-primary" %>
-</div>
-</div>
+  <div class="container">
+    <div class="row">
+      <h1>Όλες οι Σκηνές</h1>
+      <%= form_tag(scenes_path, :method => "get", id: "search-form", :remote => true) do %>
+        <%= text_field_tag :search, params[:search], placeholder: "Search Scenes" %>
+        <%= submit_tag "Search"%>
+      <% end %>
+      <div id="scenes">
+        <%= render 'scene' %>
+      </div>
+      <br>
+      <%= link_to 'Δημιουργία Νέας Σκηνής', new_scene_path, class: "btn btn-large btn-primary" %>
+    </div>
+  </div>
 </div>

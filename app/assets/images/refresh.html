@@ -1,0 +1,34 @@
+<html>
+<head>
+<title>Auto Refresh Div Content Demo | jQuery4u</title>
+<!-- For ease i'm just using a JQuery version hosted by JQuery- you can download any version and link to it locally -->
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script>
+(function($)
+{
+    $(document).ready(function()
+    {
+        
+        var $container = $("#content");
+        
+        var refreshId = setInterval(function()
+        {
+            $container.load(" #content>*", "")
+        }, 10000);
+    });
+})(jQuery);
+</script>
+</head>
+<body>
+ 
+<div id="wrapper">
+    <div id="content"><p>rtawkasasdcvwdvcwsdv</p>
+    <img src="001.jpg" id="image" alt="loading" />
+    
+    <img src="003.jpg" id="image" alt="loading" />
+    </div>
+    <img src="00.jpg" id="loading" alt="loading" style="display:none;" />
+</div>
+ 
+</body>
+</html>

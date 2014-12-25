@@ -5,11 +5,16 @@ class AreasController < ApplicationController
   # GET /areas.json
   def index
     @areas = Area.all
+    @microposts = Micropost.all
   end
 
   # GET /areas/1
   # GET /areas/1.json
   def show
+    @area = Area.find(params[:id])
+    @scene=@area.scene
+    @user = @scene.user
+    @post_feed_items = @area.post_feed.paginate(page: params[:page], :per_page => 5)
   end
 
   # GET /areas/new
@@ -24,7 +29,7 @@ class AreasController < ApplicationController
     @scene = @area.scene
     
     
-    @post_feed_items = @scene.post_feed.paginate(page: params[:page], :per_page => 5)
+    @post_feed_items = @area.post_feed.paginate(page: params[:page], :per_page => 5)
     
   end
 
@@ -52,7 +57,7 @@ class AreasController < ApplicationController
       if @area.update(area_params)
         @scene=@area.scene
         @user = @scene.user
-        format.html { redirect_to @user, notice: 'Area was successfully updated.' }
+        format.html { redirect_to @area, notice: 'Area was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -79,7 +84,7 @@ class AreasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def area_params
-      params.require(:area).permit(:scene_id, :number, :place, :dimension, :area_type)
+      params.require(:area).permit(:scene_id, :number, :place, :dimension, :area_type, :template_id)
     end
 
     def admin_user

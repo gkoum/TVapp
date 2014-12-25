@@ -6,7 +6,7 @@
 <p> Email: <%= @user.email %></p>
 <p> Αριθμός Χρήστη: <%= @user.id %></p>
 <p>
-  <%= link_to "Ο Λογαριασμός μου", @user_user %>
+  <%= link_to "Ο Λογαριασμός μου", @user %>
 </p>
 <p>
   Σύνολο Σκηνών <%= pluralize(@user.scenes.count, "scene") %>

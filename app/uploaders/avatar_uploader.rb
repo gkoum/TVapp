@@ -40,10 +40,17 @@ class AvatarUploader < CarrierWave::Uploader::Base
   #    end
   #    result.write "output.jpg"
   #end
-
+  process :auto_orient
+  def auto_orient
+    manipulate! do |img|
+      img.auto_orient
+      img
+    end
+  end
   # Create different versions of your uploaded files:
   version :thumb do
-     process :resize_to_limit => [300, 300]
+    process :auto_orient
+    process :resize_to_limit => [300, 300]
    end
 
   # Add a white list of extensions which are allowed to be uploaded.

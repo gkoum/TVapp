@@ -8,7 +8,13 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all
+    
+      if params[:search]
+        @users = User.search(params[:search]).order("created_at DESC")
+      else
+        @users = User.all.order('created_at DESC')
+      end
+    
     
   end
 
@@ -65,7 +71,7 @@ class UsersController < ApplicationController
   private
 
     def user_params
-      params.require(:user).permit(:name, :email, :password,
+      params.require(:user).permit(:name, :username, :address, :shopnumber, :phone, :mobile, :email, :password,
                                    :password_confirmation)
     end
 

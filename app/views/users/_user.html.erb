@@ -1,8 +1,29 @@
-	<li>
-      	<%= link_to user.name, user %>
-      	<%= link_to user.email, user %>
-      	<% if current_user.admin? && !current_user?(user) %>
-    | 	<%= link_to "Διαγραφή", user, method: :delete,
-                                  data: { confirm: "Είστε σίγουρος για την διαγραφή;" } %>
-  		<% end %>
-    </li>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Αριθμός Χρήστη</th>
+      <th>Όνομα Χρήστη</th>
+      <th>Επώνυμο Χρήστη</th>
+      <th>Email</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.id %></td>
+        <td><%= user.name %></td>
+        <td><%= user.username %></td>
+        <td><%= user.email %></td>
+        <td><%= link_to 'Show', user %></td>
+        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+	

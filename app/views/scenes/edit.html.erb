@@ -6,12 +6,13 @@
     <% if current_user.admin? %>
   		<h4>Είστε συνδεμένος σαν Διαχειριστής</h4>
       <h3>
-        <%= link_to "Δημιουργία Δημοσίευσης!", new_micropost_path, class: "btn btn-large btn-primary" %>
+        <%= link_to "Δημιουργία Δημοσίευσης!", new_micropost_path(:params => params), class: "btn btn-large btn-primary" %>
       </h3>
 		<% end %>  
       <h3>Διαχείριση Σκηνής: <%= @scene.id %></h3>
 		  <h3>
-        <%= link_to "Προεπισκόπηση Σκηνής!", @scene, class: "btn btn-large btn-primary" %>
+        <%= link_to "Προεπισκόπηση Σκηνής!", {:controller => "scenes", :action => "show", :name => @scene.name, :id => @scene.id }, class: "btn btn-large btn-primary" %>
+
        </h3>
 		
         
@@ -23,14 +24,13 @@
 		<%= link_to 'Back', scenes_path %>
   <% end %>
   
-        
-      
-	</div>
-  	<div class="col-lg-4">
-          <h3>Οι Περιοχές της Σκηνής: <%= @scene.id%></h3>
+        <div class="visible-lg">
+        <hr class="featurette-divider">
+          <h3>Οι Περιοχές της Σκηνής <%= @scene.id%></h3>
           <%= render 'shared/area_feed' %>
+        </div>
   	</div>
-  	<div class="col-lg-4">
+  	<div class="col-lg-8">
           <h3>Φωτογραφίες και Κείμενα</h3>
           <%= render 'shared/post_feed' %>
           

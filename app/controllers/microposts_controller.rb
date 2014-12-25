@@ -1,13 +1,24 @@
 class MicropostsController < ApplicationController
   before_action :signed_in_user, only: [:create, :destroy]
   
+  def index
+    @user = curerent_user
+    @post_feed_items = @user.post_feed.paginate(page: params[:page], :per_page => 5)
+    @area_feed_items = @user.area_feed.where("number = ?", @scene_type).paginate(page: params[:page], :per_page => 5)
+  end
 
   def create
     @micropost = current_user.microposts.build(micropost_params)
     if @micropost.save
       flash[:success] = "Micropost created!"
-      @scene=@micropost.scene
-      redirect_to edit_scene_path(@scene.id)
+     
+      if current_user.scenes.find_by_scene_type(4)
+        redirect_to current_user
+
+      else
+        @scene=@micropost.scene
+        redirect_to edit_scene_path(@scene.id)
+      end
     else
       @feed_items = []
       render 'static_pages/home'
@@ -17,16 +28,23 @@ class MicropostsController < ApplicationController
   def new
     @micropost = Micropost.new
     @user=User.first
+    @scene = Scene.find_by_id(params[:id])
+    @areas = Area.all
     @scene_feed_items = @user.scene_feed.paginate(page: params[:page], :per_page => 5)
     @post_feed_items = @user.post_feed.paginate(page: params[:page], :per_page => 5)
   end
 
   def destroy
-    Micropost.find(params[:id]).destroy
+    @micropost = Micropost.find(params[:id])
+    @micropost.destroy
     flash[:success] = "Post deleted."
-    
-    
-    redirect_to current_user
+    if (@micropost.scene != nil)
+      @scene = @micropost.scene
+      @id = @scene.id
+      redirect_to edit_scene_path(@id)
+    else
+      redirect_to current_user
+    end
   end
 
   def show

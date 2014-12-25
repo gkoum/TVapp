@@ -1,0 +1,66 @@
+<% provide(:title, 'All templates') %>
+
+<div class="top">
+<div class="container">
+  <div class="row">
+  <h3>Templates - Τύποι Σκηνών</h3>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Όνομα</th>
+      <th>Περιγραφή</th>
+      <th>Αριθμός Περιοχών</th>
+      <th>Περιοχές</th>
+      <th>Αριθμός Δημοσιεύσεων</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @templates.each do |template| %>
+      <tr>
+        <td><%= template.id %></td>
+        <td><%= template.name %></td>
+        <td><%= template.description %></td>
+        <td><%= template.number_of_areas %></td>
+        <td>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Αριθμός Περιοχής</th>
+                <th>Περιοχή</th>
+                <th>Διάσταση</th>
+                <th>Περιεχόμενο</th>
+              </tr>
+            </thead>
+            <tbody>
+            <% @areas.where(template_id: template.id).each do |area| %>
+              <tr>
+                <td><%= area.id %></td>
+                <td><%= area.place %></td>
+                <td><%= area.dimension %></td>
+                <td><%= area.area_type %></td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </td>
+        <td><%= template.number_of_posts %></td>
+        <td><%= link_to 'Show', template %></td>
+        <td><%= link_to 'Edit', edit_template_path(template) %></td>
+        <td><%= link_to 'Destroy', template, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+
+<%= link_to 'New Template', new_template_path %>
+
+</div>
+</div>
+</div>

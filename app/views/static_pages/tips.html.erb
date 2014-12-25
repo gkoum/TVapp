@@ -1,10 +1,11 @@
 <% provide(:title, 'Προγνωστικά') %>
+<%= render 'layouts/navbarpages' %>
 <div class="top">
-<div class="container marketing">
-  <div class="row">
-    <div class="col-lg-4">
-    <% if signed_in? %>
-      <% if @user.admin? %>
+<div class="container">
+
+    
+    
+    <% if signed_in? and (current_user?(@scene.user) or current_user.admin?) %>
       <section>
         <%= render 'shared/user_info' %>
       </section>
@@ -35,18 +36,19 @@
       Κατηγορία Δημοσίευσης:
       <%= f.select :category, [['Προγνωστικά','tips']] %>
       </div></p>
-      <%= f.submit "Δημοσίευση Προγνωστικού", class: "btn btn-large btn-primary" %>
+      <%= f.submit "Δημοσίευση Προγνωστικού", :params => params, class: "btn btn-large btn-primary" %>
     <% end %>
       </section>
     <% end %>
-    <% end %>
-    </div>
-    <div class="col-lg-4">
-      <h3>Τα Προγνωστικά μας</h3>
+   
+   
+    
+      <h3 align="right">Τα Προγνωστικά μας</h3>
+      <hr class="featurette-divider">
       <%= render 'shared/tips_feed' %>
-    </div>
+    
     
 
-</div>
+
 </div>
 </div>

@@ -1,6 +1,118 @@
 <% provide(:title, 'Επικοινωνία') %>
-<div class="top">	
-	<h1>StaticPages#contact</h1>
-	<p>Find me in app/views/static_pages/contact.html.erb</p>
-	<%= @res.to_s.gsub("product","Το τζακποτ του tzoker είναι:").gsub("{","").gsub("=>"," ").gsub("}","").gsub("poson","το ποσό των:").gsub("\"","") %>
+<%= render 'layouts/navbarpages' %>
+<div class="top">
+<div class="container">
+  <h3 align="right">Επικοινωνήστε μαζί μας</h3>
+   <hr class="featurette-divider">
+<!--   <div class="col-md-8">
+	
+	<%= form_for @micropost, :html => {:multipart => true} do |f| %>
+  
+  <%= render 'shared/error_messages', object: f.object %>
+  <p>
+  <div class="field">
+    <%= f.text_area :content, :cols => "30", :rows => "2", placeholder: "Εισάγετε τίτλο για την επικοινωνία σας..." %>
+  </div></p>
+  <p>
+  <div class="field">
+  <%= f.text_area :text, :cols => "40", :rows => "8", class: "tinymce", placeholder: "Εισάγετε κείμενο για την επικοινωνία σας..." %>
+  </div></p>
+  <div class="field">
+  <p>
+  	<strong>Εισαγωγή εικόνας αν θέλετε: </strong><%= f.file_field :image %>
+  </p>
+  </div>
+  <div class="field">	
+  	<p>Κατηγορία Ερώτησης:
+  	<%= f.select :category, [['Ειδήσεις','news'],['Events','events'],['Blog','blog']] %></p>
+  </div>
+ 
+  
+  <%= f.submit "Δημοσίευση", class: "btn btn-large btn-primary" %>
+  <%= f.submit 'Άδειασε την Φόρμα', :type => 'reset', class: "btn btn-small btn-primary" %>
+<% end %>
+<%= tinymce :theme => "modern", :language => "el", :entity_encoding => "raw" %> 
 </div>
+</div>
+</div> -->
+
+<section id="contact">
+        
+            <div class="box last">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h1>Φόρμα Επικονωνίας</h1>
+                        <p>Εισάγετε τα στοιχεία σας και το μηνυμά σας και θα σας απαντήσουμε άμεσα.</p>
+                        <div class="status alert alert-success" style="display: none"></div>
+                        <form id="main-contact-form" class="contact-form" name="contact-form" method="post" role="form">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" required="required" placeholder="Όνομα">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" required="required" placeholder="Email">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <textarea name="message" id="message" required="required" class="form-control" rows="8" placeholder="Το Μήνυμα σας"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-danger btn-lg">Αποστολή</button>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </form>
+                    </div><!--/.col-sm-6-->
+                    <div class="col-sm-6">
+                        <h1>Η Διεύθυνση μας:</h1>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <address>
+                                    <strong>Masterbet 1</strong><br>
+                                    Κλεισθένους 1, Κιάτο Κορινθίας<br>
+                                    Πληροφορίες: info@opap-shop.gr<br>
+                                    Υποστήριξη: support@opap-shop.gr<br>
+                                    <abbr title="Phone">P:</abbr> 27420-23456
+                                </address>
+                            </div>
+                            <div class="col-md-6">
+                                <address>
+                                    <strong>Masterbet 2</strong><br>
+                                    Κλεισθένους 1, Κιάτο Κορινθίας<br>
+                                    Πληροφορίες: info@opap-shop.gr<br>
+                                    Υποστήριξη: support@opap-shop.gr<br>
+                                    <abbr title="Phone">P:</abbr> 27420-34676
+                                </address>
+                            </div>
+                        </div>
+                        <h1>Συνδεθείτε μαζί μας:</h1>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="social">
+                                    <li><a href="#"><i class="icon-facebook icon-social"></i> Facebook</a></li>
+                                    <li><a href="#"><i class="icon-google-plus icon-social"></i> Google Plus</a></li>
+                                    <li><a href="#"><i class="icon-pinterest icon-social"></i> Pinterest</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="social">
+                                    <li><a href="#"><i class="icon-linkedin icon-social"></i> Linkedin</a></li>
+                                    <li><a href="#"><i class="icon-twitter icon-social"></i> Twitter</a></li>
+                                    <li><a href="#"><i class="icon-youtube icon-social"></i> Youtube</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div><!--/.col-sm-6-->
+                </div><!--/.row-->
+            </div><!--/.box-->
+        
+    </section><!--/#contact-->
+    </div>
+    </div>

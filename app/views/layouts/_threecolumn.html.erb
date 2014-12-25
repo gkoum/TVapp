@@ -7,22 +7,22 @@
       <!-- Three columns of text below the carousel -->
       <div class="row">
         <div class="col-lg-4">
-        <%= link_to image_tag("results.jpg", alt: "Rails"), 'myshop' %>
-          <h2>Εικόνα 360</h2>
-          <p>Δείτε κάθε γωνιά του ανανεωμένου Πρακτορείου μας.</p>
-          <p><%= link_to "Λεπτομέρειες »", myshop_path, class: "btn btn-default" %></p>
+        <%= link_to image_tag(@postthreecolumn1.image_url(:thumb).to_s, alt: "Rails"), myshop_path(:params => params), data: { no_turbolink: true } %>
+          <h2><%= @postthreecolumn1.content %></h2>
+          <p><%= wrap(@postthreecolumn1.text) %></p>
+          <p><%= link_to "Λεπτομέρειες »", myshop_path(:params => params), data: { no_turbolink: true }, class: "btn btn-default" %></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
-          <%= link_to image_tag("results2.jpg", alt: "Rails"), 'lucky' %>
-          <h2>Κέρδη-Επιτυχίες</h2>
-          <p>Κείμενο για Κέρδη-Επιτυχίες.</p>
-          <p><%= link_to "Λεπτομέρειες »", lucky_path, class: "btn btn-default" %></p>
+          <%= link_to image_tag(@postthreecolumn2.image_url(:thumb).to_s, alt: "Rails"), lucky_path(:params => params) %>
+          <h2><%= @postthreecolumn2.content %></h2>
+          <p><%= wrap(@postthreecolumn2.text) %></p>
+          <p><%= link_to "Λεπτομέρειες »", lucky_path(:params => params), data: { no_turbolink: true }, class: "btn btn-default" %></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
-          <%= link_to image_tag("results3.jpg", alt: "Rails"), 'tips' %>
-          <h2>Προγνωστικά</h2>
-          <p>Κείμενο για προγνωστικά.</p>
-          <p><%= link_to "Λεπτομέρειες »", tips_path, class: "btn btn-default" %></p>
+          <%= link_to image_tag(@postthreecolumn3.image_url(:thumb).to_s, alt: "Rails"), tips_path(:params => params) %>
+          <h2><%= @postthreecolumn3.content %></h2>
+          <p><%= wrap(@postthreecolumn3.text) %></p>
+          <p><%= link_to "Λεπτομέρειες »", tips_path(:params => params), class: "btn btn-default" %></p>
         </div><!-- /.col-lg-4 -->
       </div><!-- /.row -->
 </div>

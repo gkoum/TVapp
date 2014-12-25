@@ -1,6 +1,7 @@
 class Area < ActiveRecord::Base
 
 	belongs_to :scene
+	belongs_to :template
 	has_many :microposts
 	default_scope -> { order('created_at DESC') }
 	validates :scene_id, presence: true

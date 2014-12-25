@@ -1,0 +1,46 @@
+
+<li align=left id="<%= post_feed_item_index.id %>" class="feed">
+  
+  <hr class="featurette-divider">
+    <div class="row">
+    
+    <div class="col-md-10">
+    <% if post_feed_item_index.content != nil %>
+      <h3><div><%= wrap(post_feed_item_index.content) %></div></h3>
+    <% end %>
+    
+    <% if post_feed_item_index.text != nil %>
+      <div class="content"><%= wrap(post_feed_item_index.text) %></div>  
+    <% end %>
+    </div>
+
+    <div class="col-md-2">
+    <% if post_feed_item_index.image_url != nil %>
+    <a href="<%= post_feed_item_index.image_url.to_s %>" title="Masterbet" data-gallery>
+      <img class="avatar" src=<%= post_feed_item_index.image_url(:thumb).to_s %> alt="Avatar">
+    </a>
+    <% end %>
+
+    
+    </div>
+   <div class="timestamp">
+      Posted <%= time_ago_in_words(post_feed_item_index.created_at) %> ago.
+    <% if signed_in? %>
+    <% if current_user?(@scene.user) or current_user.admin? %>
+      <%= link_to "Επεξεργασία", edit_micropost_path(post_feed_item_index) %>
+      <% if current_user.admin? or (current_user?(@scene.user) and @scene.scene_type == 4)%>
+        <%= link_to "Διαγραφή", post_feed_item_index, method: :delete,
+              data: { confirm: "Είστε σίγουρος για την διαγραφή του σχολίου;" },
+          title: post_feed_item_index.content %>
+      <% end %>   
+    <% end %>
+    </div>
+    <% if post_feed_item_index.scene_id != nil %>
+      <div class="content">Ανήκει στη Σκηνή: <%= post_feed_item_index.scene_id %> στην Περιοχή: <%= post_feed_item_index.area_id %></div>
+    <% end %>
+    <% end %>
+  </div>
+</li>
+ 
+
+ 

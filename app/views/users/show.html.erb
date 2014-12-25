@@ -7,16 +7,16 @@
       <% if current_user.admin? %>
         <section>
           <h3>Είστε συνδεμένος σαν Διαχειριστής</h3>
-          <%= link_to "Εύρεση Χρήστη!", users_path, class: "btn btn-large btn-primary" %>
+          <%= link_to "Χρήστες", users_path, class: "btn btn-large btn-primary" %>
         </section>
-        <h3>
+<!--         <h3>
         <%= link_to "Δημιουργία Χρήστη!", signup_path, class: "btn btn-large btn-primary" %>
+        </h3> -->
+        <h3>
+        <%= link_to "Σκηνές", scenes_path, class: "btn btn-large btn-primary" %>
         </h3>
         <h3>
-        <%= link_to "Δημιουργία Σκηνής!", new_scene_path, class: "btn btn-large btn-primary" %>
-        </h3>
-        <h3>
-        <%= link_to "Δημιουργία Περιοχής!", new_area_path, class: "btn btn-large btn-primary" %>
+        <%= link_to "Περιοχές", areas_path, class: "btn btn-large btn-primary" %>
         </h3>
         <h3>
         <%= link_to "Δημιουργία Δημοσίευσης!", new_micropost_path, class: "btn btn-large btn-primary" %>

@@ -1,3 +1,231 @@
 <% provide(:title, 'Τζακποτ') %>
+<%= render 'layouts/navbarpages' %>
+<div class="top">
+<div class="container">	
+	<h3 align="right">Τα τζακποτ για αυτή την εβδομάδα</h3>
+	<hr class="featurette-divider">
 
-<%= render 'layouts/tvover1' %>
+<div id="overlay">
+
+<div id="top">
+
+<div id="uper"></div>
+<div id="cover">
+<div id="money"><%= @lotto.to_s.gsub(/['product','{','poson','}','sn','=>']/, 'product' => 'Το τζακποτ του tzoker είναι', '{' => '').gsub("\"","") %> &euro;</div>
+</div>
+<div id="when">
+<p>Κατάθεση Δελτίων μέχρι</p>
+<p>την ΠΕΜΠΤΗ 20/11 στις 20:30</p>
+</div>
+
+</div>
+</div>
+<!--======================= ANIMATION =========================================================-->
+<div id="wrappAll">
+
+<div id="man"></div>
+<div id="bubble1"></div>
+<div id="bubble2"></div>
+<div id="ribbon1"></div>
+<div id="valitsa"></div>
+<div id="ribbon2"></div>
+<div id="joker-logo"></div>
+<div id="jak-pot"></div>
+<div id="xryso"></div>
+<div id="paixe"></div>
+<div id="mbet-logo"></div>
+<div id="paixnidi"></div>
+<div id="opap-logo"></div>
+
+
+</div>
+
+<script type="text/javascript">
+   setTimeout(function () {
+	   $("#man").show().addClass("animated bounceInDown");
+	 }, 500);
+   setTimeout(function () {
+	    $("#man").hide().addClass("animated bounceInDown");
+	 }, 17000);
+ setTimeout(function () {
+	   $("#bubble1").show().addClass("animated bounceInRight");
+	 }, 1000);
+   setTimeout(function () {
+	   $("#bubble1").hide().addClass("animated bounceInRight");
+	 }, 7000);
+	 setTimeout(function () {
+	   $("#bubble2").show().addClass("animated bounceInRight");
+	 }, 1300);
+   setTimeout(function () {
+	   $("#bubble2").hide().addClass("animated bounceInRight");
+	 }, 7000);
+	 setTimeout(function () {
+	   $("#ribbon1").show().addClass("animated bounceInDown");
+	 }, 7000);
+   setTimeout(function () {
+	   $("#ribbon1").hide().addClass("animated bounceInDown");
+	 }, 17000);
+	 setTimeout(function () {
+	   $("#valitsa").show().addClass("animated bounceInRight");
+	 }, 17000);
+   setTimeout(function () {
+	   $("#valitsa").hide().addClass("animated bounceInRight");
+	 }, 26000);
+	 setTimeout(function () {
+	   $("#ribbon2").show().addClass("animated bounceInDown");
+	 }, 17500);
+   setTimeout(function () {
+	   $("#ribbon2").hide().addClass("animated bounceInDown");
+	 }, 26000);
+	 setTimeout(function () {
+	   $("#joker-logo").show().addClass("animated bounceInRight");
+	 }, 26000);
+   setTimeout(function () {
+	   $("#joker-logo").hide().addClass("animated bounceInRight");
+	 }, 40000);
+	 setTimeout(function () {
+	   $("#jak-pot").show().addClass("animated lightSpeedIn");
+	 }, 26500);
+   setTimeout(function () {
+	   $("#jak-pot").hide().addClass("animated lightSpeedIn");
+	 }, 40000);
+	 setTimeout(function () {
+	   $("#xryso").show().addClass("animated zoomIn");
+	 }, 27000);
+   setTimeout(function () {
+	   $("#xryso").hide().addClass("animated zoomIn");
+	 }, 40000);
+	 setTimeout(function () {
+	   $("#money").show().letterfx({"fx":"swirl" , fx_duration:'2s'});
+	 }, 28000);
+	setTimeout(function () {
+	   $("#money").hide();
+	 }, 33000);
+	 setTimeout(function () {
+	   $("#money").show().letterfx({"fx":"swirl" , fx_duration:'2s'});
+	 }, 33500);
+	setTimeout(function () {
+	   $("#money").hide();
+	 }, 40000);
+	 setTimeout(function () {
+	   $("#when").show().addClass("animated bounceInDown");
+	 }, 30000);
+   setTimeout(function () {
+	   $("#when").hide().addClass("animated bounceInDown");
+	 }, 40000);
+	 setTimeout(function () {
+	   $("#paixe").show().addClass("animated bounceInDown");
+	 }, 40000);
+   setTimeout(function () {
+	   $("#paixe").hide().addClass("animated bounceInDown");
+	 }, 55000);
+	 setTimeout(function () {
+	   $("#mbet-logo").show().addClass("animated flip");
+	 }, 40500);
+   setTimeout(function () {
+	   $("#mbet-logo").hide().addClass("animated flip");
+	 }, 55000);
+	 setTimeout(function () {
+	   $("#paixnidi").show().addClass("animated zoomInUp");
+	 }, 41000);
+   setTimeout(function () {
+	   $("#paixnidi").hide().addClass("animated zoomInUp");
+	 }, 55000);
+</script>	
+<script type="text/javascript">
+ setInterval(function () {
+   setTimeout(function () {
+	   $("#man").show().addClass("animated bounceInDown");
+	 }, 500);
+   setTimeout(function () {
+	    $("#man").hide().addClass("animated bounceInDown");
+	 }, 17000);
+ setTimeout(function () {
+	   $("#bubble1").show().addClass("animated bounceInRight");
+	 }, 1000);
+   setTimeout(function () {
+	   $("#bubble1").hide().addClass("animated bounceInRight");
+	 }, 7000);
+	 setTimeout(function () {
+	   $("#bubble2").show().addClass("animated bounceInRight");
+	 }, 1300);
+   setTimeout(function () {
+	   $("#bubble2").hide().addClass("animated bounceInRight");
+	 }, 7000);
+	 setTimeout(function () {
+	   $("#ribbon1").show().addClass("animated bounceInDown");
+	 }, 7000);
+   setTimeout(function () {
+	   $("#ribbon1").hide().addClass("animated bounceInDown");
+	 }, 17000);
+	 setTimeout(function () {
+	   $("#valitsa").show().addClass("animated bounceInRight");
+	 }, 17000);
+   setTimeout(function () {
+	   $("#valitsa").hide().addClass("animated bounceInRight");
+	 }, 26000);
+	 setTimeout(function () {
+	   $("#ribbon2").show().addClass("animated bounceInDown");
+	 }, 17500);
+   setTimeout(function () {
+	   $("#ribbon2").hide().addClass("animated bounceInDown");
+	 }, 26000);
+	 setTimeout(function () {
+	   $("#joker-logo").show().addClass("animated bounceInRight");
+	 }, 26000);
+   setTimeout(function () {
+	   $("#joker-logo").hide().addClass("animated bounceInRight");
+	 }, 40000);
+	 setTimeout(function () {
+	   $("#jak-pot").show().addClass("animated lightSpeedIn");
+	 }, 26500);
+   setTimeout(function () {
+	   $("#jak-pot").hide().addClass("animated lightSpeedIn");
+	 }, 40000);
+	 setTimeout(function () {
+	   $("#xryso").show().addClass("animated zoomIn");
+	 }, 27000);
+   setTimeout(function () {
+	   $("#xryso").hide().addClass("animated zoomIn");
+	 }, 40000);
+	 setTimeout(function () {
+	   $("#money").show().letterfx({"fx":"swirl" , fx_duration:'2s'});
+	 }, 28000);
+	setTimeout(function () {
+	   $("#money").hide();
+	 }, 33000);
+	 setTimeout(function () {
+	   $("#money").show().letterfx({"fx":"swirl" , fx_duration:'2s'});
+	 }, 33500);
+	setTimeout(function () {
+	   $("#money").hide();
+	 }, 40000);
+	 setTimeout(function () {
+	   $("#when").show().addClass("animated bounceInDown");
+	 }, 30000);
+   setTimeout(function () {
+	   $("#when").hide().addClass("animated bounceInDown");
+	 }, 40000);
+	 setTimeout(function () {
+	   $("#paixe").show().addClass("animated bounceInDown");
+	 }, 40000);
+   setTimeout(function () {
+	   $("#paixe").hide().addClass("animated bounceInDown");
+	 }, 55000);
+	 setTimeout(function () {
+	   $("#mbet-logo").show().addClass("animated flip");
+	 }, 40500);
+   setTimeout(function () {
+	   $("#mbet-logo").hide().addClass("animated flip");
+	 }, 55000);
+	 setTimeout(function () {
+	   $("#paixnidi").show().addClass("animated zoomInUp");
+	 }, 41000);
+   setTimeout(function () {
+	   $("#paixnidi").hide().addClass("animated zoomInUp");
+	 }, 55000);
+	 
+}, 55000);	 
+</script>	
+</div>
+</div></div>

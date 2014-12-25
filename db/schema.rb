@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140929163411) do
+ActiveRecord::Schema.define(version: 20141208084715) do
 
   create_table "areas", force: true do |t|
     t.integer  "scene_id"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20140929163411) do
     t.string   "area_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "template_id"
   end
 
   create_table "microposts", force: true do |t|
@@ -46,6 +47,15 @@ ActiveRecord::Schema.define(version: 20140929163411) do
     t.integer  "scene_type"
   end
 
+  create_table "templates", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "number_of_areas"
+    t.integer  "number_of_posts"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", force: true do |t|
     t.string   "name"
     t.string   "email"
@@ -59,6 +69,7 @@ ActiveRecord::Schema.define(version: 20140929163411) do
     t.datetime "updated_at"
     t.string   "remember_token"
     t.boolean  "admin",           default: false
+    t.boolean  "agent",           default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

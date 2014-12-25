@@ -1,7 +1,9 @@
 MasterbetApp::Application.routes.draw do
+  resources :templates
+
   resources :areas
 
-  resources :scenes
+  resources :scenes, except: :search
 
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
@@ -20,7 +22,11 @@ MasterbetApp::Application.routes.draw do
   match '/myshop', to: 'static_pages#myshop', via: 'get'
   match '/events', to: 'static_pages#events', via: 'get'
   root 'static_pages#home'
-  match '/kostas(/:category)', to: 'scenes#show', via: 'get'
+  #match '/kosta(/:category)', to: 'scenes#search', via: 'get'
+  #match '/kostas', to: redirect('/scenes/14') , via: 'get'
+  match ':name', to: 'scenes#search', via: 'get'
+  #get '/scenes/14' => 'scenes#search', as: :kostas
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

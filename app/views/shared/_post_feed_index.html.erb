@@ -1,0 +1,7 @@
+<h3>Ειδήσεις-Νέα-Γεγονότα</h3>
+<% if @post_feed_items.any? %>
+  <ul class="microposts">
+    <%= render partial: 'shared/post_feed_item_index', collection: @post_feed_items %>
+  </ul>
+  <%= will_paginate @post_feed_items %>
+<% end %>

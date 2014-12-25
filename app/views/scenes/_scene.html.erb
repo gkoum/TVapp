@@ -1,0 +1,35 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Σκηνή</th>
+      <th>Χρήστη</th>
+      <th>Όνομα</th>
+      <th>Url</th>
+      <th>Τύπος Σκηνής</th>
+      <th>Περιοχές Σκηνής</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @scenes.each do |scene| %>
+      <tr>
+        <td><%= scene.id %></td>
+        <td><%= scene.user_id %></td>
+        <td><%= scene.name %></td>
+        <td><%= scene.url %></td>
+        <td><%= scene.scene_type %></td>
+        <td>
+          <% @areas.where(template_id: scene.scene_type).each do |area| %> 
+            <%= area.id %>: <%= area.area_type %> <br>
+          <% end %>
+        </td>
+        <td><%= link_to 'Show', scene %></td>
+        <td><%= link_to 'Edit', edit_scene_path(scene) %></td>
+        <td><%= link_to 'Destroy', scene, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

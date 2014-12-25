@@ -1,7 +1,11 @@
-    <% provide(:title, 'Αρχική') %>
-    
-    <%= render 'layouts/carousel' %> 
-    <h1>Οδηγίες και Παραδείγματα Χρήσης</h1>
- 
+<% provide(:title, 'Αρχική') %>
+  
+  <% if @postcarousel1 != nil and @postcarousel2 != nil and @postcarousel3 != nil%>
+    <%= render 'layouts/carousel' %>
+  <% end %>
+  <h1>Οδηγίες και Παραδείγματα Χρήσης</h1>
+  <% if @postthreecolumn1 != nil and @postthreecolumn2 != nil and @postthreecolumn3 != nil%>
+    <%= render 'layouts/threecolumn' %>
+  <% end %>
 
-      
+         

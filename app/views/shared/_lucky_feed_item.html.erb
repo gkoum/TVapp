@@ -1,15 +1,16 @@
 <% if lucky_feed_item.category == "lucky" %>
-
+  <div class="col-lg-4">
   <li align=left id="<%= lucky_feed_item.id %>" class="feed">
     <div  hidden class="content"><%= lucky_feed_item.content %></div>  
       <% if lucky_feed_item.image_url != nil %>
+      <a href="<%= lucky_feed_item.image_url.to_s %>" title="Masterbet" data-gallery>
         <img hidden class="avatar" src=<%= lucky_feed_item.image_url(:thumb).to_s %> alt="Avatar">
-        <img hidden class="logogif" src="/assets/loading.gif" alt="Logogif">
-        
+        <img hidden class="logogif" src="/assets/overlay.png" alt="Logogif">
+      
         <canvas class="myCanvas" id="myCanvas" width="400" height="200" style="border:1px "></canvas>
             
-        <img id="canvasImg" alt="Right click to save me!">
-    
+        <!-- <img id="canvasImg" alt="Right click to save me!"> -->
+      </a>
       <% end %>
       <span class="timestamp">
         Posted <%= time_ago_in_words(lucky_feed_item.created_at) %> ago.
@@ -21,5 +22,5 @@
       <% end %>
 
   </li>
-
+  </div>
   <% end %>

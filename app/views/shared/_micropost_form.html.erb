@@ -17,12 +17,14 @@
   </div>
   <div class="field">	
   	<p>Κατηγορία Δημοσίευσης:
-  	<%= f.select :category, [['Ειδήσεις','news'],['Events','events'],['Blog','blog']] %></p>
+  	<%= f.select :category, [['Scene','scene'],['Ειδήσεις','news'],['Events','events'],['Προγνωστικά','tips'],['Τυχερά Δελτία','lucky']] %></p>
   </div>
   <div class="field">
-    <%= f.text_field :scene_id, :cols => "30", :rows => "1", placeholder: "Αριθμός Σκηνής" %>
+  <p>Υποχρεωτικά ο Αριθμός σκηνής:
+    <%= f.text_field :scene_id, :cols => "30", :rows => "1", placeholder: "Αριθμός Σκηνής" %></p>
   </div>
   <div class="field">
+  <p>Αριθμός Περιοχής μόνο εάν ανήκει σε κάποια περιοχή:
     <%= f.text_field :area_id, :cols => "30", :rows => "1", placeholder: "Αριθμός Περιοχής" %>
   </div>
   

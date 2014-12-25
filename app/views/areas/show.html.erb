@@ -1,29 +1,23 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Scene:</strong>
-  <%= @area.scene_id %>
-</p>
+<% if current_user.admin? %>
+<div class="top">
+  <div class="container marketing">
+      <div class="row">
+        <div class="col-lg-4">
+      <h1>Επεξεργασία Περιοχής: <%= @area.id %></h1>
 
-<p>
-  <strong>Number:</strong>
-  <%= @area.number %>
-</p>
+      <%= render 'form' %>
 
-<p>
-  <strong>Place:</strong>
-  <%= @area.place %>
-</p>
+      <%= link_to 'Show', @area %> |
+      <%= link_to 'Back', areas_path %>
+      </div>
 
-<p>
-  <strong>Dimension:</strong>
-  <%= @area.dimension %>
-</p>
-
-<p>
-  <strong>Type:</strong>
-  <%= @area.area_type %>
-</p>
-
-<%= link_to 'Edit', edit_area_path(@area) %> |
-<%= link_to 'Back', areas_path %>
+      <div class="col-lg-8">
+              <h3>Φωτογραφίες και Κείμενα</h3>
+              <%= render 'shared/post_feed' %>
+        </div>
+    </div>
+  </div>
+</div>
+<% end %>

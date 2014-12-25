@@ -10,27 +10,18 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <%= link_to "TV_app Administration",    root_path, class: "navbar-brand" %>
+              <%= link_to "Διαχείριση των Σκηνών-Σελίδων μου",    root_path, class: "navbar-brand" %>
             </div>
-            <div class="navbar-header">
-            <div class="navbar-brand">
-              
-              
-              <% flash.each do |key, value| %>
-        <%= content_tag(:div, value, class: "alert alert-#{key}") %>
-        <!-- the same as above<div class="alert alert-<%= key %>"><%= value %></div>-->
-      <% end %>
-            </div>
-            </div>
+                        
             <div class="navbar-collapse collapse">
               
-              <ul class="nav pull-right">
+              <ul class="nav pull-right navbar-nav">
                 <% if signed_in? %>
                 <% @user=current_user %>
                 <li id="fat-menu" class="dropdown">
-                <h4><a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 Λογαριασμός Χρήστη <%= @user.name %><b class="caret"></b>
-                </a></h4>
+                </a>
                 <ul class="dropdown-menu">
                   <li><%= link_to "Ο Λογιαριασμός μου", user_path(current_user) %></li>
                   <li><%= link_to "Ρυθμίσεις Λογιαριασμού", edit_user_path(current_user) %></li>

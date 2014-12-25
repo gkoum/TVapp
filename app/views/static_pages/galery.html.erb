@@ -1,11 +1,11 @@
 <% provide(:title, 'Gallery') %>
+<%= render 'layouts/navbarpages' %>
 <div class="top">
 <div class="container marketing">
 
   <div class="row">
     
-    <% if signed_in? %>
-    <% if @user.admin? %>
+    <% if signed_in? and (current_user?(@scene.user) or current_user.admin?) %>
     <div class="col-6 col-sm-6 col-lg-4">
       <section>
         <%= render 'shared/user_info' %>
@@ -26,7 +26,7 @@
 		    <% end %>
       </section>
     <% end %>
-    <% end %>
+    
     </div>
     
     	<h3>Οι φωτογραφίες μας</h3>

@@ -15,5 +15,7 @@ class Scene < ActiveRecord::Base
     	@scene = Scene.where("id = ?", id)
       Area.all
   	end
-
+    def self.search(search)
+    where("name LIKE ?", "%#{search}%") 
+    end
 end

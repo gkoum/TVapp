@@ -4,59 +4,122 @@ class ScenesController < ApplicationController
   # GET /scenes
   # GET /scenes.json
   def index
-    @scenes = Scene.all
+    @disable_navp = true
+    @areas = Area.all
+    if params[:search]
+      @scenes = Scene.search(params[:search]).order("created_at DESC")
+    else
+      @scenes = Scene.all.order('created_at DESC')
+    end
   end
 
   # GET /scenes/1
   # GET /scenes/1.json
   def show
     @scene = Scene.find(params[:id])
-    @disable_nav = 1
+    @disable_nav = true
+    @disable_navp = true
     @user = @scene.user
     if @scene.scene_type == 4
+      @post_feed_items = @user.post_feed.where(category: ["news","events"]).paginate(page: params[:page], :per_page => 5)
       @post1 = @scene.microposts.find_by(area_id: 8)
-      @post2 = @scene.microposts.find_by(area_id: 91)
-      @post3 = @scene.microposts.find_by(area_id: 92)
-      @post4 = @scene.microposts.find_by(area_id: 93)
-      @post5 = @scene.microposts.find_by(area_id: 7)
-      @post6 = @scene.microposts.find_by(area_id: 10)
+      
+      
+      @postlogo = @scene.microposts.find_by(area_id: 14)
+
+      @postcarousel1 = @scene.microposts.where(area_id: 9).first
+      @postcarousel2 = @scene.microposts.where(area_id: 9).second
+      @postcarousel3 = @scene.microposts.where(area_id: 9).third
+
+      @postthreecolumn1 = @scene.microposts.where(area_id: 10).first
+      @postthreecolumn2 = @scene.microposts.where(area_id: 10).second
+      @postthreecolumn3 = @scene.microposts.where(area_id: 10).third
+
     elsif @scene.scene_type == 3
       @post1 = @scene.microposts.find_by(area_id: 8)
-      @post2 = @scene.microposts.find_by(area_id: 91)
-      @post3 = @scene.microposts.find_by(area_id: 92)
-      @post4 = @scene.microposts.find_by(area_id: 93)
+      @post2 = @scene.microposts.where(area_id: 9).first
+      @post3 = @scene.microposts.where(area_id: 9).second
+      @post4 = @scene.microposts.where(area_id: 9).third
       @post5 = @scene.microposts.find_by(area_id: 7)
       @post6 = @scene.microposts.find_by(area_id: 10)
     elsif @scene.scene_type == 2
-      @post1 = @scene.microposts.find_by(area_id: 20)
-      @postticker1 = @scene.microposts.find_by(area_id: 11)
-      @postticker2 = @scene.microposts.find_by(area_id: 12)
-      @postticker3 = @scene.microposts.find_by(area_id: 13)
+      @post1 = @scene.microposts.find_by(area_id: 2)
+      @postticker1 = @scene.microposts.where(area_id: 1).first
+      @postticker2 = @scene.microposts.where(area_id: 1).second
+      @postticker3 = @scene.microposts.where(area_id: 1).third
     elsif @scene.scene_type == 1
       @post1 = @scene.microposts.find_by(area_id: 12)
-      @post2 = @scene.microposts.find_by(area_id: 111)
-      @post3 = @scene.microposts.find_by(area_id: 112)
-      @post4 = @scene.microposts.find_by(area_id: 113)
+      @postcarousel1 = @scene.microposts.where(area_id: 11).first
+      @postcarousel2 = @scene.microposts.where(area_id: 11).second
+      @postcarousel3 = @scene.microposts.where(area_id: 11).third
+    elsif @scene.scene_type == 6
+      @postcarousel1 = User.find_by(admin: true).microposts.where(scene_id: [2]).first
+      @postcarousel2 = User.find_by(admin: true).microposts.where(scene_id: [2]).second
+      @postcarousel3 = User.find_by(admin: true).microposts.where(scene_id: [2]).third
+      @postthreecolumn1 = User.find_by(admin: true).microposts.where(scene_id: [2]).fourth
+      @postthreecolumn2 = User.find_by(admin: true).microposts.where(scene_id: [2]).fifth
+      @postthreecolumn3 = User.find_by(admin: true).microposts.where(scene_id: [2]).last
+    elsif @scene.scene_type == 7
+      @post1 = @scene.microposts.find_by(area_id: 13)
     else
       redirect_to edit_scene_path(@scene.id)
     end
   end
 
   def search
-    @scene = Scene.find(params[:category])
+    @disable_nav = true
+    
+    @scene = Scene.find_by_name(params[:name])
+    @user = @scene.user
+    if @scene.scene_type == 4
+      @post_feed_items = @user.post_feed.where(category: ["news","events"]).paginate(page: params[:page], :per_page => 5)
+      @post1 = @scene.microposts.find_by(area_id: 8)
+      
+      
+      @postlogo = @scene.microposts.find_by(area_id: 14)
+
+      @postcarousel1 = @scene.microposts.where(area_id: 9).first
+      @postcarousel2 = @scene.microposts.where(area_id: 9).second
+      @postcarousel3 = @scene.microposts.where(area_id: 9).third
+
+      @postthreecolumn1 = @scene.microposts.where(area_id: 10).first
+      @postthreecolumn2 = @scene.microposts.where(area_id: 10).second
+      @postthreecolumn3 = @scene.microposts.where(area_id: 10).third
+
+    elsif @scene.scene_type == 3
+      @post1 = @scene.microposts.find_by(area_id: 8)
+      @post2 = @scene.microposts.where(area_id: 9).first
+      @post3 = @scene.microposts.where(area_id: 9).second
+      @post4 = @scene.microposts.where(area_id: 9).third
+      @post5 = @scene.microposts.find_by(area_id: 7)
+      @post6 = @scene.microposts.find_by(area_id: 10)
+    elsif @scene.scene_type == 2
+      @post1 = @scene.microposts.find_by(area_id: 2)
+      @postticker1 = @scene.microposts.where(area_id: 1).first
+      @postticker2 = @scene.microposts.where(area_id: 1).second
+      @postticker3 = @scene.microposts.where(area_id: 1).third
+    elsif @scene.scene_type == 1
+      @post1 = @scene.microposts.find_by(area_id: 12)
+      @postcarousel1 = @scene.microposts.where(area_id: 11).first
+      @postcarousel2 = @scene.microposts.where(area_id: 11).second
+      @postcarousel3 = @scene.microposts.where(area_id: 11).third
+    else
+      redirect_to edit_scene_path(@scene.id)
+    end
   end
 
   # GET /scenes/new
   def new
+    @disable_navp = true
     @scene = Scene.new
   end
 
   # GET /scenes/1/edit
   def edit
+    @disable_navp = true
     @scene = Scene.find(params[:id])
     
     @user = @scene.user
-    @post = @user.microposts.first
     @scene_type = @scene.scene_type
     @scenes = Scene.where("scene_type = ?", @scene_type)
     @scene_feed_items = @user.scene_feed.paginate(page: params[:page], :per_page => 5)
@@ -67,6 +130,7 @@ class ScenesController < ApplicationController
   # POST /scenes
   # POST /scenes.json
   def create
+    @disable_navp = true
     @scene = Scene.new(scene_params)
 
     respond_to do |format|

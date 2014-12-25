@@ -3,7 +3,11 @@
   <div class="row">
     
     <% if signed_in? %>
-      
+      <p> Αριθμός Σκηνής: <%= @scene.id %>  Περιοχές:</p>
+      <p><% @areas.where(template_id: @scene.scene_type).each do |area| %> 
+            <%= area.id %>: <%= area.area_type %> <br>
+          <% end %>
+      </p>
       
       <section>
         <%= render 'shared/micropost_form' %>

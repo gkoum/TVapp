@@ -8,40 +8,138 @@
         <li class="active" data-target="#myCarousel" data-slide-to="2"></li>
       </ol>
       <div class="carousel-inner">
-        <div class="item">
-          <%= link_to image_tag("Football-Bet4.jpg", alt: "Rails"), signin_path %>
+        <% if @postcarousel2 != nil %>
+        <div class="item">  
+          <img src=<%= @postcarousel2.image %> alt="Avatar">
           <div class="container">
             <div class="carousel-caption">
-              <b><h1>Καλώς Ήρθατε!</h1>
-              <p>Στην σελίδα αυτή μπορείτε να διαχειριστείτε την εφαρμογή σας <b>proΩθηση</b></p>
-              <p><%= link_to "Είσοδος Χρήστη", signin_path, class: "btn btn-lg btn-primary" %></p>
+              <b><h1><%= @postcarousel2.content %></h1>
+              <p><%= @postcarousel2.text %></p>
+              <p><%= link_to "Το Πρακτορείο μας", myshop_path(:params => params), data: { no_turbolink: true }, class: "btn btn-lg btn-primary"%></p>
               </b>
             </div>
           </div>
         </div>
+        <% end %>
+        <% if @postcarousel4 != nil %>
         <div class="item">
-          <%= link_to image_tag("Football-Bet1.jpg", alt: "Rails"), signin_path %>
+          <img src=<%= @postcarousel4.image %> alt="Avatar">
           <div class="container">
             <div class="carousel-caption">
-              <b><h1>Καλώς Ήρθατε!</h1>
-              <p>Στην σελίδα αυτή μπορείτε να διαχειριστείτε την εφαρμογή σας <b>proΩθηση</b></p>
-              <p><%= link_to "Είσοδος Χρήστη", signin_path, class: "btn btn-lg btn-primary" %></p>
+              <b><h1><%= @postcarousel4.content %></h1>
+              <p><%= @postcarousel4.text %></p>
+              <p><%= link_to "Το Πρακτορείο μας", myshop_path(:params => params), data: { no_turbolink: true }, class: "btn btn-lg btn-primary" %></p>
               </b>
             </div>
           </div>
         </div>
+        <% end %>
+        <% if @postcarousel5 != nil %>
+        <div class="item">
+          <img src=<%= @postcarousel5.image %> alt="Avatar">
+          <div class="container">
+            <div class="carousel-caption">
+              <b><h1><%= @postcarousel5.content %></h1>
+              <p><%= @postcarousel5.text %></p>
+              <p><%= link_to "Το Πρακτορείο μας", myshop_path(:params => params), data: { no_turbolink: true }, class: "btn btn-lg btn-primary" %></p>
+              </b>
+            </div>
+          </div>
+        </div>
+        <% end %>
+        <% if @postcarousel6 != nil %>
+        <div class="item">
+          <img src=<%= @postcarousel6.image %> alt="Avatar">
+          <div class="container">
+            <div class="carousel-caption">
+              <b><h1><%= @postcarousel6.content %></h1>
+              <p><%= @postcarousel6.text %></p>
+              <p><%= link_to "Το Πρακτορείο μας", myshop_path(:params => params), data: { no_turbolink: true }, class: "btn btn-lg btn-primary" %></p>
+              </b>
+            </div>
+          </div>
+        </div>
+        <% end %>
+        <% if @postcarousel7 != nil %>
+        <div class="item">
+          <img src=<%= @postcarousel7.image %> alt="Avatar">
+          <div class="container">
+            <div class="carousel-caption">
+              <b><h1><%= @postcarousel7.content %></h1>
+              <p><%= @postcarousel7.text %></p>
+              <p><%= link_to "Το Πρακτορείο μας", myshop_path(:params => params), data: { no_turbolink: true }, class: "btn btn-lg btn-primary" %></p>
+              </b>
+            </div>
+          </div>
+        </div>
+        <% end %>
+        <% if @postcarousel8 != nil %>
+        <div class="item">
+          <img src=<%= @postcarousel8.image %> alt="Avatar">
+          <div class="container">
+            <div class="carousel-caption">
+              <b><h1><%= @postcarousel8.content %></h1>
+              <p><%= @postcarousel8.text %></p>
+              <p><%= link_to "Το Πρακτορείο μας", myshop_path(:params => params), data: { no_turbolink: true }, class: "btn btn-lg btn-primary" %></p>
+              </b>
+            </div>
+          </div>
+        </div>
+        <% end %>
+        <% if @postcarousel9 != nil %>
+        <div class="item">
+          <img src=<%= @postcarousel9.image %> alt="Avatar">
+          <div class="container">
+            <div class="carousel-caption">
+              <b><h1><%= @postcarousel9.content %></h1>
+              <p><%= @postcarousel9.text %></p>
+              <p><%= link_to "Το Πρακτορείο μας", myshop_path(:params => params), data: { no_turbolink: true }, class: "btn btn-lg btn-primary" %></p>
+              </b>
+            </div>
+          </div>
+        </div>
+        <% end %>
+        <% if @postcarousel10 != nil %>
+        <div class="item">
+          <img src=<%= @postcarousel10.image %> alt="Avatar">
+          <div class="container">
+            <div class="carousel-caption">
+              <b><h1><%= @postcarousel10.content %></h1>
+              <p><%= @postcarousel10.text %></p>
+              <p><%= link_to "Το Πρακτορείο μας", myshop_path(:params => params), data: { no_turbolink: true }, class: "btn btn-lg btn-primary" %></p>
+              </b>
+            </div>
+          </div>
+        </div>
+        <% end %>
+        <% if @postcarousel3 != nil %>
+        <div class="item">
+          <img src=<%= @postcarousel3.image %> alt="Avatar">
+          <div class="container">
+            <div class="carousel-caption">
+              <b><h1><%= @postcarousel3.content %></h1>
+              <p><%= raw(@postcarousel3.text) %></p>
+              <p><%= link_to "Προγνωστικά", tips_path(:params => params), class: "btn btn-lg btn-primary" %></p>
+              </b>
+            </div>
+          </div>
+        </div>
+        <% end %>
+        <% if @postcarousel1 != nil %>
         <div class="item active">
-          <%= link_to image_tag("Football-Bet2.jpg", alt: "Rails"), signin_path %>
+          <img src=<%= @postcarousel1.image %> alt="Avatar">
           <div class="container">
             <div class="carousel-caption">
-              <b><h1>Καλώς Ήρθατε!</h1>
-              <p>Στην σελίδα αυτή μπορείτε να διαχειριστείτε την εφαρμογή σας <b>proΩθηση</b></p>
-              <p><%= link_to "Είσοδος Χρήστη", signin_path, class: "btn btn-lg btn-primary" %></p>
+              <b><h1><%= @postcarousel1.content %></h1>
+              <p><%= @postcarousel1.text %></p>
+              <p><%= link_to "Νέα - Ειδήσεις", news_path(:params => params), class: "btn btn-lg btn-primary" %></p>
               </b>
             </div>
           </div>
         </div>
+        <% end %>
       </div>
+      
       <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
       <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
     </div><!-- /.carousel -->

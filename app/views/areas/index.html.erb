@@ -1,18 +1,19 @@
 <% if current_user.admin? %>
 <div class="top">
-  <div class="container marketing">
+  <div class="container">
       <div class="row">
-        <div class="col-lg-4">
+
 <h1>Οι Περιοχές</h1>
 
 <table class="table">
   <thead>
     <tr>
       <th>Αριθμός Περιοχής</th>
-      <th>Τύπος Σκηνής</th>
+      <th>Template type</th>
       <th>Περιοχή</th>
       <th>Διάσταση</th>
       <th>Περιεχόμενο</th>
+      <th>Σχετιζόμενες Δημοσιεύσεις</th>
       <th></th>
       <th></th>
       <th></th>
@@ -23,10 +24,15 @@
     <% @areas.each do |area| %>
       <tr>
         <td><%= area.id %></td>
-        <td><%= area.number %></td>
+        <td><%= area.template_id %></td>
         <td><%= area.place %></td>
         <td><%= area.dimension %></td>
         <td><%= area.area_type %></td>
+        <td>
+          <% @microposts.where(area_id: area.id).each do |post| %> 
+            <%= post.id %>, 
+          <% end %>
+        </td>
         <td><%= link_to 'Show', area %></td>
         <td><%= link_to 'Edit', edit_area_path(area) %></td>
         <td><%= link_to 'Destroy', area, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -41,7 +47,7 @@
 <h3>
         <%= link_to "Δημιουργία Περιοχής!", new_area_path, class: "btn btn-large btn-primary" %>
         </h3>
-</div>
+
     </div>
   </div>
 </div>

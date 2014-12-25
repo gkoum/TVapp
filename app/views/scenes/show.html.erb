@@ -1,8 +1,8 @@
 
-<% if @scene.scene_type == 1 %><!DOCTYPE html>
+<% if @scene.scene_type == 1 %>
+
 <!DOCTYPE html>
-<html>
-  
+<html> 
   <head data-gwd-animation-mode="proMode">
     <script data-source="custom.elements.min.js" type="text/javascript" src="custom.elements.min.js"></script>
     <title>template_1_carousel_banner</title>
@@ -40,57 +40,43 @@
       }
     </style>
     <script data-source="gwdiframe_min.js" data-version="1" data-exports-type="gwd-iframe" type="text/javascript" src="gwdiframe_min.js"></script>
+    <script>
+    // $(document).ready(function()
+    //   {
+    //     $(document).live("onchange",function()
+    //       {
+            
+    //                 $('#bodyajax').load('http://localhost:3000/scenes/1');
+                
+    //     // blah?
+    //       });
+    //   });
+
+    
+        (function($)
+        {
+            $(document).ready(function()
+            {
+                
+                var $container = $("#bodyajax");
+                
+                var refreshId = setInterval(function()
+                {
+                    $(document).load(" http://localhost:3000/scenes/1>*", "")
+                }, 10000);
+            });
+        })(jQuery);
+
+    </script>
   </head>
   
-  <body>
+  <body id="bodyajax">
     <iframe is="gwd-iframe" id="iframe_right" source=<%= @post1.content %> class="gwd-iframe-fse7"></iframe>
     <div class="gwd-div-pggz" id="div_left">
         <!-- Carousel
     ================================================== -->
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-      <!-- Indicators -->
-      <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class=""></li>
-        <li class="" data-target="#myCarousel" data-slide-to="1"></li>
-        <li class="active" data-target="#myCarousel" data-slide-to="2"></li>
-      </ol>
-      <div class="carousel-inner">
-        <div class="item">
-        <% if @post2 != nil %>
-          <img class="gwd-img-gg5g gwd-img-468s" src=<%= @post2.image %> alt="Avatar">
-        <% end %>  
-          <div class="container">
-            <div class="carousel-caption">
-              
-              <p><%= link_to @post2.content.to_s, signin_path, class: "btn btn-lg btn-primary" %></p>
-              </b>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-        <% if @post3 != nil %>
-          <img class="gwd-img-gg5g gwd-img-468s" src=<%= @post3.image %> alt="Avatar">
-        <% end %>
-          <div class="container">
-            <div class="carousel-caption">
-              <p><%= link_to @post3.content.to_s, signin_path, class: "btn btn-lg btn-primary" %></p>
-            </div>
-          </div>
-        </div>
-        <div class="item active">
-          <% if @post4 != nil %>
-          <img class="gwd-img-gg5g gwd-img-468s" src=<%= @post4.image %> alt="Avatar">
-        <% end %>
-          <div class="container">
-            <div class="carousel-caption">
-              <p><%= link_to @post4.text.to_s, signin_path, class: "btn btn-lg btn-primary" %></p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
-      <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
-    </div><!-- /.carousel -->
+      <%= render 'layouts/carousel_scenes'%>
+    <!-- /.carousel -->
     </div>
   </body>
 
@@ -217,17 +203,7 @@
       $("ul#ticker01").liScroll({travelocity: 0.15});
 
   });
-
-
-
   </script>
-
-  </head>
-
-
-
-  <body>
-
   <style>
 
   .tickercontainer { /* the outer div with the black border */
@@ -283,60 +259,38 @@
   ul.newsticker li {
 
   float: left; /* important: display inline gives incorrect results when you check for elem's width */
-
   margin: 0;
-
   padding: 0;
-
   background: #fff;
-
   }
-
   ul.newsticker a {
-
   white-space: nowrap;
-
   padding: 0;
-
   color: #ff0000;
-
   font: bold 10px Verdana;
-
   margin: 0 50px 0 0;
-
   } 
-
   ul.newsticker span {
-
   margin: 0 10px 0 0;
-
   } 
-
   </style>
-
-
-
+  </head>
+  <body>
   <ul id="ticker01">
-
-      <li><span><%= @postticker1.content %></span><a href="#"><%= @postticker1.text %></a></li>
-
-      <li><span><%= @postticker2.content %></span><a href="#"><%= @postticker2.text %></a></li>
-
-      <li><span><%= @postticker3.content %></span><a href="#"><%= @postticker3.text %></a></li>
-
-      <!-- eccetera -->
-
+    <% if @postticker1 != nil %>
+    <li><span><%= @postticker1.content %></span><a href="#"><%= strip_tags(@postticker1.text) %></a></li>
+    <% end %>
+    <% if @postticker2 != nil %>
+    <li><span><%= @postticker2.content %></span><a href="#"><%= strip_tags(@postticker2.text) %></a></li>
+    <% end %>
+    <% if @postticker3 != nil %>
+    <li><span><%= @postticker3.content %></span><a href="#"><%= strip_tags(@postticker3.text) %></a></li>
+    <% end %>
+    <!-- eccetera -->
   </ul>
-
   <iframe is="gwd-iframe" id="iframe_right" source=<%= @post1.content %> class="gwd-iframe-duoi" scrolling="no"></iframe>
-
   </body>
-
 </html>
-
-
-
-
 
 <% elsif @scene.scene_type == 3 %>
 <!DOCTYPE html>
@@ -1239,7 +1193,27 @@
     <% end %>
 </body> 
 </html>
+
 <% elsif @scene.scene_type == 4 %>
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/el_GR/sdk.js#xfbml=1&version=v2.0";
+    fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script>
+  <% provide(:title, 'Αρχική') %>
+  <%= render 'layouts/navbarpages' %>
+  <% if @postcarousel1 != nil and @postcarousel2 != nil and @postcarousel3 != nil%>
+    <%= render 'layouts/carousel' %>
+  <% end %>
+  <% if @postthreecolumn1 != nil and @postthreecolumn2 != nil and @postthreecolumn3 != nil%>
+    <%= render 'layouts/threecolumn2' %>
+  <% end %>
+
+<% elsif @scene.scene_type == 5 %>
 <!DOCTYPE html>
 <html><head data-gwd-animation-mode="quickMode"><meta name="GCD" content="YTk3ODQ3ZWZhN2I4NzZmMzBkNTEwYjJl9542fabf8b2b62be62abaef6ddcdaa7c"/>
     <link href="gwdswipegallery_style.css" data-version="1" data-exports-type="gwd-swipegallery" rel="stylesheet">
@@ -1338,17 +1312,17 @@ body {
       </ol>
       <div class="carousel-inner">
         <div class="item">
-        <% if @post2 != nil %>
-          <img class="gwd-img-gg5g gwd-img-468s" src=<%= @post2.image %> alt="Avatar">
-        <% end %>  
-          <div class="container">
-            <div class="carousel-caption">
-              <b><h1>Καλώς Ήρθατε!</h1>
-              <p>Στην σελίδα αυτή μπορείτε να διαχειριστείτε την εφαρμογή σας <b>proΩθηση</b></p>
-              <p><%= link_to "Μεγάλες Προσφορές και Εκπτώσεις", signin_path, class: "btn btn-lg btn-primary" %></p>
-              </b>
+          <% if @post2 != nil %>
+            <img class="gwd-img-gg5g gwd-img-468s" src=<%= @post2.image %> alt="Avatar">
+            <div class="container">
+              <div class="carousel-caption">
+                <b><h1><%= @post2.content %></h1>
+                <p>Στην σελίδα αυτή μπορείτε να διαχειριστείτε την εφαρμογή σας <b>proΩθηση</b></p>
+                <p><%= link_to "Μεγάλες Προσφορές και Εκπτώσεις", signin_path, class: "btn btn-lg btn-primary" %></p>
+                </b>
+              </div>
             </div>
-          </div>
+          <% end %> 
         </div>
         <div class="item">
         <% if @post3 != nil %>
@@ -1377,8 +1351,88 @@ body {
     </div>
 
     <%= link_to image_tag("53b813b6b1948PTlmlbxvbAxfdYgIRaaL.png", alt: "Rails", class: "gwd-img-gg5g gwd-img-qydm"), 'lucky' %>
-    
-  
+</body>
+</html>
 
-</body></html>
+<% elsif @scene.scene_type == 6 %>
+  <% provide(:title, 'Αρχική') %>
+  
+  <% if @postcarousel1 != nil and @postcarousel2 != nil and @postcarousel3 != nil%>
+    <%= render 'layouts/carousel' %>
+  <% end %>
+  <h1>Οδηγίες και Παραδείγματα Χρήσης</h1>
+  <% if @postthreecolumn1 != nil and @postthreecolumn2 != nil and @postthreecolumn3 != nil%>
+    <%= render 'layouts/threecolumn' %>
+  <% end %>
+
+<% elsif @scene.scene_type == 7 %>
+<!DOCTYPE html>
+<html> 
+  <head data-gwd-animation-mode="proMode">
+    <script data-source="custom.elements.min.js" type="text/javascript" src="custom.elements.min.js"></script>
+    <title>template_1_carousel_banner</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="generator" content="Google Web Designer 1.1.2.0814">
+    <style type="text/css">
+      html, body {
+        width: 100%;
+        height: 100%;
+        margin: 0px;
+      }
+      body {
+        background-color: transparent;
+        -webkit-transform: perspective(1400px) matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+        -webkit-transform-style: preserve-3d;
+        width: 1280px;
+        height: 720px;
+      }
+      .gwd-iframe-fse7 {
+        position: absolute;
+        border: none;
+        top: 0px;
+        height: 720px;
+        left: 0px;
+        width: 1280px;
+      }
+}
+    </style>
+    <script data-source="gwdiframe_min.js" data-version="1" data-exports-type="gwd-iframe" type="text/javascript" src="gwdiframe_min.js"></script>
+    <script>
+    // $(document).ready(function()
+    //   {
+    //     $(document).live("onchange",function()
+    //       {
+            
+    //                 $('#bodyajax').load('http://localhost:3000/scenes/1');
+                
+    //     // blah?
+    //       });
+    //   });
+
+    
+        (function($)
+        {
+            $(document).ready(function()
+            {
+                
+                var $container = $("#bodyajax");
+                
+                var refreshId = setInterval(function()
+                {
+                    $(document).load(" http://localhost:3000/scenes/1>*", "")
+                }, 10000);
+            });
+        })(jQuery);
+
+    </script>
+  </head>
+  
+  <body id="bodyajax">
+    <iframe is="gwd-iframe" id="iframe_right" source=<%= @post1.content %> class="gwd-iframe-fse7"></iframe>
+   
+  </body>
+
+</html>
+
+
 <% end %>
